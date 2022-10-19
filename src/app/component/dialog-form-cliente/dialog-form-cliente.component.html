@@ -3,7 +3,7 @@
         <h2 class="txt-titulo" mat-dialog-title>{{titulo}}</h2>
         <mat-divider></mat-divider>
         <mat-dialog-content class="mat-typography">
-            <div class="form" [formGroup]="formCliente">
+            <div class="form form-client" [formGroup]="formCliente">
                 <mat-form-field class="form-field" color="primary">
                     <mat-label>Nombre</mat-label>
                     <input matInput type="text" [(ngModel)]="cliente.nombre" formControlName="nombre">

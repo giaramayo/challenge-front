@@ -1,23 +1,32 @@
 <div class="container">
   <div class="cliente-content">
+    
     <mat-card>
+      <button mat-flat-button color="default" (click)="volverHome()">
+        Volver al home
+      </button>
       <h2>
         Clientes
       </h2>
 
       <div class="row cliente-box">
-        <div class="form row-cols-3">
-          <mat-form-field appearance="fill" color="primary">
+        <div class="form row">
+          <div class="col-md-10">
+          <mat-form-field class="filter" appearance="fill" color="primary">
             <mat-label>Buscar Cliente</mat-label>
             <input matInput (keyup)="filtrar($event)" #input>
           </mat-form-field>
+        </div>
+        <div class="col-md-2">
+
           <button mat-flat-button color="primary" (click)="agregar()">
             <mat-icon aria-hidden="false">person_add</mat-icon>
             Agregar
           </button>
         </div>
+      </div>
         <section>
-          <table mat-table [dataSource]="dataSource">
+          <table mat-table class="table-user" [dataSource]="dataSource">
             <ng-container matColumnDef="id">
               <th mat-header-cell *matHeaderCellDef>#</th>
               <td mat-cell *matCellDef="let element"> {{element.id}} </td>

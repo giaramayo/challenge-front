@@ -1,6 +1,11 @@
 html, body { height: 100%; }
   body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background: #f8f5f5; }
 
+  .cdk-overlay-pane {
+    width: 100%!important;
+    max-width: 80%!important;
+}
+
 h1.txt-titulo {
     margin-top: 15px;
     text-align: center;
@@ -9,13 +14,22 @@ h1.txt-titulo {
     font-size: 2.5em;
     font-style: italic;
 }
+mat-card {
+  cursor: pointer;
+}
 
+mat-card.disabled {
+  cursor:no-drop;
+}
 
 h2 {
   border-radius: 5px;
   padding: 0 20px;
   background: linear-gradient(90deg, #6878dd 0%, #a3cbef 100%);
   color: white;
+  &.disabled {
+    background: linear-gradient(90deg, #9e9e9e 0%, #505050 100%);
+  }
 }
 
 

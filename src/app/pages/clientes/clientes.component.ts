@@ -6,7 +6,9 @@ import { ConfirmacionComponent } from 'src/app/component/confirmacion/confirmaci
 import { ClientesService } from 'src/app/service/clientes.service';
 import { DialogSnackbarComponent } from '../../component/dialog-snackbar/dialog-snackbar.component';
 import { DialogFormClienteComponent } from '../../component/dialog-form-cliente/dialog-form-cliente.component';
+import { Router } from '@angular/router';
 
+export const HOME_URL = "/"
 @Component({
   selector: 'app-clientes',
   templateUrl: './clientes.component.html',
@@ -21,12 +23,17 @@ export class ClientesComponent implements OnInit {
 
   constructor(private clienteService: ClientesService,
               public _snackBar: MatSnackBar,
-              public dialog: MatDialog) {
+              public dialog: MatDialog,
+              private router: Router) {
     this.cargando = true;
   }
 
   ngOnInit(): void {
     this.getClientes();
+  }
+
+  volverHome(){
+    this.router.navigateByUrl(HOME_URL);
   }
 
   getClientes() {
@@ -94,7 +101,6 @@ export class ClientesComponent implements OnInit {
   modificar(element: any) {
     element.titulo = 'Modificar Tratamiento';
     const dialogRef = this.dialog.open(DialogFormClienteComponent, {
-      width: '300px',
       data: element
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -124,7 +130,6 @@ export class ClientesComponent implements OnInit {
     }
 
     const dialogRef = this.dialog.open(DialogFormClienteComponent, {
-      width: '300px',
       data: nuevo
     });
 

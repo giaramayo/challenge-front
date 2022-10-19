@@ -5,42 +5,20 @@
       <h1 class="txt-titulo">Challenge</h1>
     </div>
     <div class="row">
-        <div class="home-card">
-            <mat-card>
+        <div class="home-card col-md-6">
+            <mat-card (click)="consultarCliente()">
                 <mat-card-header>
-                  <div mat-card-avatar class="home-header-image"></div>
-                  <mat-card-title>Clientes</mat-card-title>
+                  <mat-card-title><h2>Listado de clientes</h2></mat-card-title>
                 </mat-card-header>
                 <img class="icon-header" [src]="clienteGrupo">
-                <mat-card-content>
-                  <p>
-                    Listado de clientes
-                  </p>
-                </mat-card-content>
-                <mat-card-actions>
-                  <button mat-flat-button color="primary" (click)="consultarCliente()">
-                    Consultar
-                  </button>
-                </mat-card-actions>
               </mat-card>
         </div>
-        <div class="home-card">
-          <mat-card>
+        <div class="home-card col-md-6">
+          <mat-card class="disabled">
               <mat-card-header>
-                <div mat-card-avatar class="home-header-image"></div>
-                <mat-card-title>Clima</mat-card-title>
+                <mat-card-title><h2 class="disabled">Clima</h2></mat-card-title>
               </mat-card-header>
               <img class="icon-header" [src]="clima">
-              <mat-card-content>
-                <p>
-                  Consultar clima segun la ciudad seleccionada
-                </p>
-              </mat-card-content>
-              <mat-card-actions>
-                <button mat-flat-button color="primary" (click)="consultarClima()" disabled>
-                  Consultar
-                </button>
-              </mat-card-actions>
             </mat-card>
       </div>
     </div>
