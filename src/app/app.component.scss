@@ -1,0 +1,22 @@
+
+::ng-deep .snack-bar-err {
+    color: rgb(179 16 38);
+    background: #f49d97;
+}
+
+::ng-deep .snack-bar-ok {
+    color: rgb(18 111 10);
+    background: #9ae176;
+}
+
+::ng-deep .snack-bar-war {
+    color: rgb(114 98 10);
+    background: #e2de88;
+}
+
+
+.disable-item {
+  cursor: not-allowed !important;
+  opacity: 0.5;
+  background-color: #f9f9f9 !important;
+}

@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="dialog-container">
+        <h2 class="txt-titulo" mat-dialog-title>{{titulo}}</h2>
+        <mat-divider></mat-divider>
+        <mat-dialog-content class="mat-typography">
+            <div class="form" [formGroup]="formCliente">
+                <mat-form-field class="form-field" color="primary">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text" [(ngModel)]="cliente.nombre" formControlName="nombre">
+                    <mat-error *ngIf="formCliente.get('nombre')?.invalid">
+                        Este campo es requerido
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-field" color="primary">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput type="text" [(ngModel)]="cliente.apellido" formControlName="apellido">
+                    <mat-error *ngIf="formCliente.get('apellido')?.invalid">
+                        Este campo es requerido
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-field" color="primary">
+                    <mat-label>Fecha de Nacimiento</mat-label>
+                    <input matInput [max]="hoy" [matDatepicker]="picker" formControlName="fecha_nacimiento"  [(ngModel)]="cliente.fecha_nacimiento">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="formCliente.get('fecha_nacimiento')?.invalid">
+                        Por favor, seleccione una fecha válida
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-field" color="primary">
+                    <mat-label>Domicilio</mat-label>
+                    <input matInput type="text" [(ngModel)]="cliente.domicilio" formControlName="domicilio">
+                    <mat-error *ngIf="formCliente.get('domicilio')?.invalid">
+                        Este campo es requerido
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-field" color="primary">
+                    <mat-label>Telefono</mat-label>
+                    <input matInput type="text" [(ngModel)]="cliente.telefono" formControlName="telefono">
+                    <mat-error *ngIf="formCliente.get('telefono')?.invalid">
+                        Este campo es requerido
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-field" color="primary">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="text" [(ngModel)]="cliente.email" formControlName="email">
+                    <mat-error *ngIf="formCliente.get('email')?.hasError('pattern')">
+                        El email ingresado no es válido
+                      </mat-error>
+                </mat-form-field>
+            </div>
+        </mat-dialog-content>
+        <mat-dialog-actions align="end">
+            <button mat-button (click)="cerrar()">
+                Cancelar
+            </button>
+            <button mat-button color="primary" [disabled]="formCliente.invalid" (click)="guardar()">
+                Guardar
+            </button>
+        </mat-dialog-actions>
+    </div>
+</div>
